@@ -20,23 +20,27 @@ class GameSprite(sprite.Sprite):
 
 #игровая сцена
 win_color = (254, 239, 239) #цвет фона
-win_width = 600
+win_width = 700
 win_height = 500
 window = display.set_mode((win_width, win_height))
 window.fill(win_color)
+
 
 clock = time.Clock()
 fps = 60
 game = True
 
-ball = GameSprite('ping_pong_image.png', 200, 200, 4, 50, 50)
+ball = GameSprite('ping_pong_image.png', 330, 250, 4, 50, 50)
+red_racket = GameSprite('red_racket.png', 30, 250, 4, 75, 125)
+blue_racket = GameSprite('blue_racket.png', 600 , 250, 4, 75, 125)
 #игровой цикл
 
 while game:
     for e in event.get():
         if e.type == QUIT:
             game = False
-
+    red_racket.reset()
+    blue_racket.reset()
     ball.reset()
     display.update()
     clock.tick(fps)        
